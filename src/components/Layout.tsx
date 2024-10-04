@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
@@ -14,18 +16,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <header className="bg-blue-500 text-white p-4">
         <nav className="container mx-auto flex justify-between items-center">
           <Link href="/">
-            <a className="text-2xl font-bold">My Store</a>
+            <span className="text-2xl font-bold cursor-pointer">My Store</span>
           </Link>
           <ul className="flex space-x-4">
             <li>
               <Link href="/products">
-                <a>Products</a>
+                <span className="cursor-pointer">Products</span>
               </Link>
             </li>
             <li>
-              <a href="#" className="flex items-center">
+              <span className="flex items-center cursor-pointer">
                 Cart ({cart.reduce((sum, item) => sum + item.quantity, 0)})
-              </a>
+              </span>
             </li>
           </ul>
         </nav>

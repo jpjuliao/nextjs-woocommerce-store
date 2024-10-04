@@ -1,3 +1,5 @@
+"use client"
+
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { Product } from '@/types/product';
 
@@ -13,7 +15,7 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export function CartProvider({ children }: { children: ReactNode }) {
+const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product) => {
@@ -37,12 +39,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
       {children}
     </CartContext.Provider>
   );
-}
+};
 
-export function useCart() {
+const useCart = () => {
   const context = useContext(CartContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useCart must be used within a CartProvider');
   }
   return context;
-}
+};
+
+// Default export combining both the CartProvider and the useCart hook
+export { CartProvider, useCart };
