@@ -1,19 +1,23 @@
+import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 import { Product } from '@/types/product';
 
-const WOO_COMMERCE_URL = process.env.NEXT_PUBLIC_WOO_COMMERCE_URL;
-const WOO_COMMERCE_KEY = process.env.WOO_COMMERCE_KEY;
-const WOO_COMMERCE_SECRET = process.env.WOO_COMMERCE_SECRET;
+const WooCommerce = new WooCommerceRestApi({
+  url: process.env.NEXT_PUBLIC_WOOCOMMERCE_URL || '',
+  consumerKey: process.env.NEXT_PUBLIC_WOOCOMMERCE_KEY || '',
+  consumerSecret: process.env.NEXT_PUBLIC_WOOCOMMERCE_SECRET || '',
+  version: 'wc/v3'
+});
 
 export async function fetchProducts(): Promise<Product[]> {
-  const response = await fetch(`${WOO_COMMERCE_URL}/wp-json/wc/v3/products`, {
-    headers: {
-      Authorization: `Basic ${Buffer.from(`${WOO_COMMERCE_KEY}:${WOO_COMMERCE_SECRET}`).toString('base64')}`,
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch products');
+  try {
+    const response = await WooCommerce.get("products");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
   }
-
-  return response.json();
 }
+
+// Add other API functions as needed, e.g.:
+// export async function fetchProduct(id: number): Promise<Product | null> { ... }
+// export async function createOrder(orderData: OrderData): Promise<Order> { ... }
