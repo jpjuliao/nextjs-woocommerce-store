@@ -2,6 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
 
+/**
+ * The homepage of the app, which displays a hero section with a link to the
+ * products page and other content as needed.
+ *
+ * @returns The JSX element for the homepage.
+ */
 export default function Home() {
   return (
     <Layout>

@@ -4,6 +4,15 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import { useCart } from '@/contexts/CartContext';
 
+/**
+ * The CartPage component displays the cart items and the total price.
+ *
+ * If the cart is empty, it displays a message saying so.
+ *
+ * Otherwise, it displays a list of cart items, each with its name, quantity,
+ * price, and a button to remove it from the cart. It also displays a summary
+ * with the total price and a button to proceed to checkout.
+ */
 const CartPage: React.FC = () => {
   const { cart, removeFromCart } = useCart();
 

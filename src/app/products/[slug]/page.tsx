@@ -9,6 +9,17 @@ import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
 import DOMPurify from 'dompurify'; 
 
+  /**
+   * The ProductDetailPage component displays a single product based on the
+   * product slug passed in the URL. It fetches the product data from the
+   * WooCommerce API and displays the product name, price, images, and
+   * description. If the product is not found, it displays a "Product not found"
+   * message. If there is an error fetching the product, it displays a
+   * "Failed to fetch product" message.
+   *
+   * The component also allows users to add the product to their cart by
+   * clicking the "Add to Cart" button.
+   */
 const ProductDetailPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);

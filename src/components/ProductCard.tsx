@@ -6,6 +6,14 @@ interface ProductCardProps {
   product: Product;
 }
 
+/**
+ * A card component that displays product information and allows users to add it to their cart.
+ *
+ * @param {Object} props - React props.
+ * @param {Product} props.product - A product object.
+ *
+ * @returns {React.ReactElement} A React component.
+ */
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
 

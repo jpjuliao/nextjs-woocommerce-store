@@ -9,6 +9,14 @@ interface ProductsPageProps {
   products: Product[];
 }
 
+/**
+ * A page that displays a list of products.
+ *
+ * @param {Object} props - React props.
+ * @param {Product[]} props.products - An array of products to display.
+ *
+ * @returns {React.ReactElement} A React component.
+ */
 const ProductsPage: React.FC<ProductsPageProps> = ({ products }) => {
   return (
     <Layout>

@@ -8,6 +8,12 @@ interface LayoutProps {
   children: ReactNode;
 }
 
+/**
+ * A layout component that renders a header, main content area, and footer.
+ *
+ * @param {{ children: ReactNode }} props
+ * @returns {JSX.Element}
+ */
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { cart } = useCart();
 

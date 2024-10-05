@@ -9,6 +9,14 @@ const WooCommerce = new WooCommerceRestApi({
   version: 'wc/v3'
 });
 
+/**
+ * Handles GET requests to fetch a product by its slug from the WooCommerce API.
+ *
+ * @param {NextApiRequest} req - The Next.js API request object.
+ * @param {NextApiResponse} res - The Next.js API response object.
+ *
+ * @returns {Promise<void>} Promise resolving when the response is sent.
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
