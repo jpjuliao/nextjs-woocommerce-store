@@ -1,4 +1,4 @@
-'use client';
+'use client';  
 
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
@@ -25,9 +25,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </Link>
             </li>
             <li>
-              <span className="flex items-center cursor-pointer">
-                Cart ({cart.reduce((sum, item) => sum + item.quantity, 0)})
-              </span>
+              <Link href="/cart">
+                <div className="flex items-center cursor-pointer">
+                  Cart ({cart.reduce((sum, item) => sum + item.quantity, 0)})
+                </div>
+              </Link>
             </li>
           </ul>
         </nav>
