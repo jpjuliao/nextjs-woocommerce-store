@@ -1,9 +1,9 @@
-'use client'; 
+'use client';
 
 import React from 'react';
-import { CartProvider } from '@/contexts/CartContext';
 import localFont from "next/font/local";
 import "./globals.css";
+import { CartProvider } from '@/contexts/CartContext';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,18 +16,18 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-  /**
-   * The root layout for all pages.
-   *
-   * This component is rendered on the server and on the client.
-   * It is the top-level component for all pages and is used to render the
-   * highest-level HTML structure, including the {@link CartProvider} context.
-   *
-   * @param {{ children: ReactNode }} props The props object containing the
-   * children to render.
-   *
-   * @returns {ReactElement} The root layout element.
-   */
+/**
+ * The root layout for all pages.
+ *
+ * This component is rendered on the server and on the client.
+ * It is the top-level component for all pages and is used to render the
+ * highest-level HTML structure, including the {@link CartProvider} context.
+ *
+ * @param {{ children: ReactNode }} props The props object containing the
+ * children to render.
+ *
+ * @returns {ReactElement} The root layout element.
+ */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   /**
    * The root layout for all pages.
@@ -44,7 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <CartProvider>{children}</CartProvider>
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );
