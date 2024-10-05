@@ -7,6 +7,7 @@ import { fetchProductBySlug } from '@/utils/api';
 import { Product } from '@/types/product';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
+import DOMPurify from 'dompurify'; 
 
 const ProductDetailPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
@@ -49,6 +50,8 @@ const ProductDetailPage = () => {
     return <div>Product not found</div>;
   }
 
+  const sanitizedDescription = DOMPurify.sanitize(product.description);
+
   return (
     <Layout>
       <div className="product-detail">
@@ -56,7 +59,7 @@ const ProductDetailPage = () => {
         <p className="text-lg font-semibold mb-2">${product.price}</p>
 
         <div className="product-gallery">
-          {/* {product.images.map((image, index) => (
+          {product.images.map((image, index) => (
             <Image
               key={index}
               src={image.src}
@@ -65,12 +68,15 @@ const ProductDetailPage = () => {
               height={500}
               className="mb-4"
             />
-          ))} */}
+          ))}
         </div>
 
         <div className="product-description">
           <h2 className="text-2xl font-bold mt-4">Description</h2>
-          <p className="mt-2">{product.description}</p>
+          <div
+            className="mt-2"
+            dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
+          />
         </div>
 
         <button
