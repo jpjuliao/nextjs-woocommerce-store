@@ -34,10 +34,9 @@ const ProductsPage: React.FC<ProductsPageProps> = ({ products }) => {
 export async function getStaticProps() {
   let products: Product[] = [];
   try {
-    // Log before the fetch call
-    console.log("Fetching products...");
-    products = await fetchProducts(); // Ensure fetchProducts is set to call the correct API
-    // console.log("Fetched products:", products); // Log the fetched products
+    // console.log("Fetching products...");
+    products = await fetchProducts();
+    // console.log("Fetched products:", products);
   } catch (error) {
     console.error('Error fetching products in SSG:', error);
   }
