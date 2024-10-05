@@ -35,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="flex-grow container mx-auto p-4">
         {children}
       </main>
-      <footer className="bg-gray-200 p-4 text-center">
+      <footer className="bg-gray-800 p-4 text-center">
         <p>&copy; 2023 My Store. All rights reserved.</p>
       </footer>
     </div>

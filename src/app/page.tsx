@@ -15,21 +15,14 @@ export default function Home() {
             {' '}WooCommerce Store
           </h1>
 
-          <p className="mt-3 text-2xl">
-            Get started by editing{' '}
-            <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-              app/page.tsx
-            </code>
-          </p>
-
           <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
             <Link href="/products">
-              <span className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
+              <div className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
                 <h3 className="text-2xl font-bold">View Products &rarr;</h3>
                 <p className="mt-4 text-xl">
                   Explore our wide range of products from WooCommerce.
                 </p>
-              </span>
+              </div>
             </Link>
 
             {/* Add more links or content as needed */}
