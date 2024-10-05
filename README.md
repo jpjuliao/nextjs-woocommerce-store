@@ -45,9 +45,9 @@ Before you begin, ensure you have the following installed:
 
 3. Create a `.env.local` file in the root directory with the following content:
    ```
-   NEXT_PUBLIC_WOO_COMMERCE_URL=https://your-woocommerce-store-url.com
-   WOO_COMMERCE_KEY=your_consumer_key
-   WOO_COMMERCE_SECRET=your_consumer_secret
+   NEXT_PUBLIC_WOOCOMMERCE_URL=https://your-woocommerce-store-url.com
+   WOOCOMMERCE_KEY=your_consumer_key
+   WOOCOMMERCE_SECRET=your_consumer_secret
    ```
    Replace the placeholders with your actual WooCommerce store URL and API credentials.
 
