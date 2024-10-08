@@ -1,10 +1,9 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { useState } from 'react';
-import { fetchProductByID } from '@/utils/api'; // Assuming this utility exists to fetch product data
-import { Product } from '@/types/product';
+// File: components/ProductDetail.tsx
+
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
-import DOMPurify from 'dompurify';
+import { Product } from '@/types/product';
 
 interface ProductDetailProps {
   product: Product;
@@ -13,8 +12,17 @@ interface ProductDetailProps {
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const { addToCart } = useCart();
+  const [sanitizedDescription, setSanitizedDescription] = useState(product.description);
 
-  const sanitizedDescription = DOMPurify.sanitize(product.description);
+  useEffect(() => {
+    const sanitizeContent = async () => {
+      if (typeof window !== 'undefined') {
+        const DOMPurify = (await import('dompurify')).default;
+        setSanitizedDescription(DOMPurify.sanitize(product.description));
+      }
+    };
+    sanitizeContent();
+  }, [product.description]);
 
   const handleAddToCart = () => {
     addToCart({
@@ -70,45 +78,3 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 };
 
 export default ProductDetail;
-
-// getStaticProps to fetch product data based on the dynamic ID
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (!params) {
-    return {
-      notFound: true,
-    };
-  }
-  
-  const productId = params.id;
-  console.log('Params:', params); // Add this line to verify the id parameter
-  console.log('ProductId:', productId); // Add this line to verify the id parameter
-  
-  const product = await fetchProductByID(Number(productId));
-
-  if (!product) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      product,
-    },
-    revalidate: 60, // Regenerate the page at most every 60 seconds
-  };
-};
-
-// getStaticPaths to pre-render product pages based on dynamic IDs
-export const getStaticPaths: GetStaticPaths = async () => {
-  // Here you'd typically fetch all product IDs from an API or database
-  const products = await fetchProducts(); // Assuming fetchProducts exists
-  const paths = products.map((product) => ({
-    params: { id: product.id.toString() }, // Ensure id is a string
-  }));
-
-  return {
-    paths,
-    fallback: 'blocking', // Block rendering until the page is generated
-  };
-};

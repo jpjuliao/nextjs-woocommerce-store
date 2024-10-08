@@ -10,7 +10,7 @@ const WooCommerce = new WooCommerceRestApi({
 });
 
 /**
- * Handles GET requests to fetch a product by its slug from the WooCommerce API.
+ * Handles GET requests to fetch a product by its id from the WooCommerce API.
  *
  * @param {NextApiRequest} req - The Next.js API request object.
  * @param {NextApiResponse} res - The Next.js API response object.
@@ -21,15 +21,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { slug } = req.query;
+  const { id } = req.query;
 
-  if (!slug || typeof slug !== 'string') {
-    return res.status(400).json({ message: 'Invalid slug' });
+  if (!id || typeof id !== 'string') {
+    return res.status(400).json({ message: 'Invalid id' });
   }
 
   try {
     const response = await WooCommerce.get('products', {
-      slug,
+      id,
     });
     const products: Product[] = response.data;
 
