@@ -55,7 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       <div className="flex justify-between">
-        <a href={`/products/${product.name}`} rel="noopener noreferrer" className="bg-blue-500 text-white px-4 py-2 rounded">
+        <a href={`/products/${product.id}`} rel="noopener noreferrer" className="bg-blue-500 text-white px-4 py-2 rounded">
           View Details
         </a>
         <button

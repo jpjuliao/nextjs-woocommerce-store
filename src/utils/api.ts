@@ -23,16 +23,16 @@ export async function fetchProducts() {
 /**
  * Fetches a product by its slug from the API.
  *
- * @param {string} slug The slug of the product to fetch.
+ * @param {string} ID - The ID of the product to fetch.
  * @returns {Promise<Product | null>} Promise resolving to the product if found,
  *     or null if not found.
  */
-export async function fetchProductBySlug(slug: string) {
+export async function fetchProductByID(id: number) {
   try {
-    const response = await axiosInstance.get(`/api/products/${slug}`);
+    const response = await axiosInstance.get(`/api/products/${id}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching product with slug ${slug}:`, error);
+    console.error(`Error fetching product with slug ${id}:`, error);
     return null;
   }
 }
