@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { Product } from '@/types/product';
 import { useCart } from '@/contexts/CartContext';
-
-interface ProductCardProps {
-  product: Product;
-}
+import ProductCardProps from '@/types/ProductCardProps';
+import Image from 'next/image';
 
 /**
  * A card component that displays product information and allows users to add it to their cart.
@@ -36,7 +33,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div className="border p-4 rounded-lg shadow-md">
       {
         product.images.length > 0 && (
-          <img src={product.images[0].src} alt={product.name} className="w-full h-48 object-cover mb-4" />
+          <><Image src={product.images[0].src} width={200} height={200} alt={product.name}
+              className="w-full h-48 object-cover mb-4" /></>
         )
       }
       <h2 className="text-lg font-semibold mb-2">{product.name}</h2>

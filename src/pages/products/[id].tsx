@@ -1,14 +1,9 @@
-
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { fetchProductByID } from '@/utils/api';
 import ProductDetail from '@/components/ProductDetail';
-import { Product } from '@/types/product';
 import Layout from '@/components/Layout';
 import "@/app/globals.css";
-
-interface ProductDetailPageProps {
-  product: Product;
-}
+import ProductDetailPageProps from "@/types/ProductDetailPageProps"
 
 /**
  * A page that displays a product detail.

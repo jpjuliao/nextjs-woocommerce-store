@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
-import { Product } from '@/types/product';
-
-interface ProductDetailProps {
-  product: Product;
-}
+import ProductDetailProps from '@/types/ProductDetailProps';
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const [quantity, setQuantity] = useState<number>(1);

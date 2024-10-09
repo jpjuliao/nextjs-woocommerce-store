@@ -4,10 +4,8 @@ import ProductList from '@/components/ProductList';
 import { fetchProducts } from '@/utils/api';
 import { Product } from '@/types/product';
 import "@/app/globals.css";
+import ProductsPageProps from '@/types/ProductsPageProps';
 
-interface ProductsPageProps {
-  products: Product[];
-}
 
 /**
  * A page that displays a list of products.

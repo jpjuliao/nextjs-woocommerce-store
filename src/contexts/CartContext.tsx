@@ -1,19 +1,8 @@
 'use client';
 
+import { CartItem, CartContextType } from '@/types/CartContextProps';
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
-interface CartContextType {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (itemId: number) => void;
-}
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
