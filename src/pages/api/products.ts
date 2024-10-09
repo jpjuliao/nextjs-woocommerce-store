@@ -1,13 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
-import { Product } from '@/types/ProductProps';
-
-const WooCommerce = new WooCommerceRestApi({
-  url: process.env.NEXT_PUBLIC_WOOCOMMERCE_URL || '',
-  consumerKey: process.env.WOOCOMMERCE_KEY || '',
-  consumerSecret: process.env.WOOCOMMERCE_SECRET || '',
-  version: 'wc/v3'
-});
+import { fetchProducts } from '@/utils/api';
 
 /**
  * Handles GET requests to fetch the list of products from the WooCommerce API.
@@ -23,8 +15,7 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     try {
-      const response = await WooCommerce.get('products');
-      const products: Product[] = response.data;
+      const products = await fetchProducts();
       res.status(200).json(products);
     } catch (error) {
       console.error('Error fetching products:', error);

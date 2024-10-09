@@ -4,6 +4,8 @@ import { useCart } from '@/contexts/CartContext';
 import ProductDetailProps from '@/types/ProductDetailProps';
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
+  console.log(product);
+
   const [quantity, setQuantity] = useState<number>(1);
   const { addToCart } = useCart();
   const [sanitizedDescription, setSanitizedDescription] = useState(product.description);
