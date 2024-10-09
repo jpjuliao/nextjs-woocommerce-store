@@ -20,7 +20,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
 
 export default ProductDetailPage;
 
-/*************  ✨ Codeium Command ⭐  *************/
 /**
  * Next.js' getStaticProps function, which is used to pre-render this page at
  * build time. This function is called at build time with the `params` object
@@ -36,7 +35,6 @@ export default ProductDetailPage;
  * `revalidate` property is set to 60, which means that Next.js will
  * revalidate this page and re-run this function every 60 seconds.
  */
-/******  e812ad66-dac0-4dd2-9266-18b50fc1895d  *******/
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params?.id) {
     return { notFound: true };
