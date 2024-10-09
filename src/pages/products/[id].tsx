@@ -1,6 +1,6 @@
 
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { fetchProductByID, fetchProducts } from '@/utils/api';
+import { fetchProductByID } from '@/utils/api';
 import ProductDetail from '@/components/ProductDetail';
 import { Product } from '@/types/product';
 import Layout from '@/components/Layout';
