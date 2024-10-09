@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import ProductList from '@/components/ProductList';
 import { fetchProducts } from '@/utils/api';
-import { Product } from '@/types/product';
+import { Product } from '@/types/Product';
 import "@/app/globals.css";
 import ProductsPageProps from '@/types/ProductsPageProps';
 
