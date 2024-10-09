@@ -32,9 +32,11 @@ const ProductCard: React.FC<ProductDetailProps> = ({ product }) => {
   return (
     <div className="border p-4 rounded-lg shadow-md">
       {
-        product.images.length > 0 && (
-          <><Image src={product.images[0].src} width={200} height={200} alt={product.name}
+        product.images.length > 0 ? (
+          <><Image src={product.images[0].src} width={400} height={300} alt={product.name}
               className="w-full h-48 object-cover mb-4" /></>
+        ) : (
+          <img src="https://placehold.co/600x400" width={400} height={300} alt={product.name} />
         )
       }
       <h2 className="text-lg font-semibold mb-2">{product.name}</h2>

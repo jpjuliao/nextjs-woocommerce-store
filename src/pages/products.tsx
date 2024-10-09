@@ -32,12 +32,10 @@ const ProductsPage: React.FC<ProductsProps> = ({ products }) => {
 export async function getStaticProps() {
   let products: Product[] = [];
   try {
-    // console.log("Fetching products...");
     products = await fetchProducts();
-    // console.log("Fetched products:", products);
   } catch (error) {
     console.error('Error fetching products in SSG:', error);
-  }
+  } 
 
   return {
     props: {
