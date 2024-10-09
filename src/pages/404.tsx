@@ -1,33 +1,22 @@
-// File: pages/404.tsx
-
 import Link from 'next/link'
+import Layout from '@/components/Layout'
 
+/**
+ * A custom 404 page that displays a friendly error message with a link to
+ * go back to the home page.
+ *
+ * @return {ReactElement} The custom 404 page component.
+ */
 export default function Custom404() {
   return (
-    <div className="container">
-      <h1>404 - Page Not Found</h1>
-      <p>Oops! The page you're looking for doesn't exist.</p>
-      <Link href="/">
-        <a>Go back to home</a>
-      </Link>
-      <style jsx>{`
-        .container {
-          text-align: center;
-          padding: 100px 20px;
-        }
-        h1 {
-          font-size: 48px;
-          margin-bottom: 20px;
-        }
-        p {
-          font-size: 18px;
-          margin-bottom: 30px;
-        }
-        a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-      `}</style>
-    </div>
+    <Layout>
+      <div className="container">
+        <h1>404 - Page Not Found</h1>
+        <p>Oops! The page you're looking for doesn't exist.</p>
+        <Link href="/">
+          <a>Go back to home</a>
+        </Link>
+      </div>
+    </Layout>
   )
 }

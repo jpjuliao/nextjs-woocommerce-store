@@ -1,5 +1,3 @@
-// File: components/ProductDetail.tsx
-
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';

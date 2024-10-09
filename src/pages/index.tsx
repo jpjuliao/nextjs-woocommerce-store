@@ -31,8 +31,6 @@ export default function Home() {
                 </p>
               </div>
             </Link>
-
-            {/* Add more links or content as needed */}
           </div>
         </main>
       </div>

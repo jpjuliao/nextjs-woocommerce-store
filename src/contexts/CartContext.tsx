@@ -17,6 +17,18 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+/**
+ * A context provider for the cart state and functions to manipulate it.
+ *
+ * The provider stores the cart items in local storage, and loads the cart
+ * from local storage when it mounts. It also saves the cart to local
+ * storage whenever the cart changes.
+ *
+ * @param {Object} props - The props object must contain a single property,
+ * `children`, which is the React node to render.
+ * @returns {ReactElement} The CartContext provider, which wraps the given
+ * children in the CartContext.Provider component.
+ */
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
@@ -60,6 +72,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+/**
+ * A hook to access the cart state and functions to manipulate it.
+ *
+ * @returns {CartContextType} The cart state and functions to manipulate it.
+ *
+ * @throws {Error} If the hook is used outside of a CartProvider.
+ */
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
