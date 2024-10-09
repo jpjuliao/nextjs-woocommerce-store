@@ -10,6 +10,14 @@ interface ProductDetailPageProps {
   product: Product;
 }
 
+/**
+ * A page that displays a product detail.
+ *
+ * @param {{ product: Product }} props - Component props.
+ * @param {Product} props.product - A product object.
+ *
+ * @returns {React.ReactElement} A React component.
+ */
 const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
   return (
     <Layout>
@@ -68,13 +76,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
  * little while to generate.
  */
 export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await fetchProducts();
-  const paths = products.map((product) => ({
-    params: { id: product.id.toString() },
-  }));
-
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   };
 };
