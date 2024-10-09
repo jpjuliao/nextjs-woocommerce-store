@@ -12,7 +12,7 @@ export default function Custom404() {
     <Layout>
       <div className="container">
         <h1>404 - Page Not Found</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
+        <p>Oops! The page you&apos;re looking for doesn&apos;t exist.</p>
         <Link href="/">
           <a>Go back to home</a>
         </Link>

@@ -1,10 +1,10 @@
 'use client';
 
-import { CartItem, CartContextType } from '@/types/CartContextProps';
+import { CartItemProps, CartContextProps } from '@/types/CartContextProps';
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 /**
  * A context provider for the cart state and functions to manipulate it.
@@ -19,7 +19,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
  * children in the CartContext.Provider component.
  */
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItemProps[]>([]);
 
   useEffect(() => {
     const savedCart = localStorage.getItem('cart');
@@ -36,14 +36,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
    * Adds an item to the cart. If the item is already in the cart,
    * it will increment the quantity of that item. Otherwise, it will
    * add the item to the cart.
-   * @param {CartItem} item - The item to add to the cart.
+   * @param {CartItemProps} item - The item to add to the cart.
    */
-  const addToCart = (item: CartItem) => {
+  const addToCart = (item: CartItemProps) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
+      const existingItem = prevCart.find((cartItemProps) => cartItemProps.id === item.id);
       if (existingItem) {
-        return prevCart.map((cartItem) =>
-          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + item.quantity } : cartItem
+        return prevCart.map((cartItemProps) =>
+          cartItemProps.id === item.id ? { ...cartItemProps, quantity: cartItemProps.quantity + item.quantity } : cartItemProps
         );
       }
       return [...prevCart, { ...item, quantity: item.quantity }];
@@ -51,7 +51,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeFromCart = (itemId: number) => {
-    setCart((prevCart) => prevCart.filter((cartItem) => cartItem.id !== itemId));
+    setCart((prevCart) => prevCart.filter((cartItemProps) => cartItemProps.id !== itemId));
   };
 
   return (
@@ -64,7 +64,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 /**
  * A hook to access the cart state and functions to manipulate it.
  *
- * @returns {CartContextType} The cart state and functions to manipulate it.
+ * @returns {CartContextProps} The cart state and functions to manipulate it.
  *
  * @throws {Error} If the hook is used outside of a CartProvider.
  */

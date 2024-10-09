@@ -1,14 +1,14 @@
-interface CartItem {
+interface CartItemProps {
   id: number;
   name: string;
   price: number;
   quantity: number;
 }
 
-interface CartContextType {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
+interface CartContextProps {
+  cart: CartItemProps[];
+  addToCart: (item: CartItemProps) => void;
   removeFromCart: (itemId: number) => void;
 }
 
-export type { CartItem, CartContextType };
+export type { CartItemProps, CartContextProps };

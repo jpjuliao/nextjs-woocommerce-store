@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
-import { Product } from '@/types/Product';
+import { Product } from '@/types/ProductProps';
 
 const WooCommerce = new WooCommerceRestApi({
   url: process.env.NEXT_PUBLIC_WOOCOMMERCE_URL || '',

@@ -2,9 +2,9 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import ProductList from '@/components/ProductList';
 import { fetchProducts } from '@/utils/api';
-import { Product } from '@/types/Product';
+import { Product } from '@/types/ProductProps';
 import "@/app/globals.css";
-import ProductsPageProps from '@/types/ProductsPageProps';
+import ProductsProps from '@/types/ProductsProps';
 
 
 /**
@@ -15,7 +15,7 @@ import ProductsPageProps from '@/types/ProductsPageProps';
  *
  * @returns {React.ReactElement} A React component.
  */
-const ProductsPage: React.FC<ProductsPageProps> = ({ products }) => {
+const ProductsPage: React.FC<ProductsProps> = ({ products }) => {
   return (
     <Layout>
       <h1 className="text-3xl font-bold mb-6">Our Products</h1>

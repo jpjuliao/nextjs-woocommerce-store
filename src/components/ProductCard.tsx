@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
-import ProductCardProps from '@/types/ProductCardProps';
+import ProductDetailProps from '@/types/ProductDetailProps';
 import Image from 'next/image';
 
 /**
@@ -11,7 +11,7 @@ import Image from 'next/image';
  *
  * @returns {React.ReactElement} A React component.
  */
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductDetailProps> = ({ product }) => {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState<number>(1);
 

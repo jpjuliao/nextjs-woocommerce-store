@@ -3,7 +3,7 @@ import { fetchProductByID } from '@/utils/api';
 import ProductDetail from '@/components/ProductDetail';
 import Layout from '@/components/Layout';
 import "@/app/globals.css";
-import ProductDetailPageProps from "@/types/ProductDetailPageProps"
+import ProductDetailProps from "@/types/ProductDetailProps"
 
 /**
  * A page that displays a product detail.
@@ -13,7 +13,7 @@ import ProductDetailPageProps from "@/types/ProductDetailPageProps"
  *
  * @returns {React.ReactElement} A React component.
  */
-const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
+const ProductDetailPage: React.FC<ProductDetailProps> = ({ product }) => {
   return (
     <Layout>
       <ProductDetail product={product} />
