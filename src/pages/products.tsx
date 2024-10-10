@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@/components/Layout';
 import ProductList from '@/components/ProductList';
-import { fetchProducts } from '@/utils/api';
+import axios from 'axios';
 import { Product } from '@/types/ProductProps';
 import "@/app/globals.css";
 import ProductsProps from '@/types/ProductsProps';
@@ -32,7 +32,9 @@ const ProductsPage: React.FC<ProductsProps> = ({ products }) => {
 export async function getStaticProps() {
   let products: Product[] = [];
   try {
-    products = await fetchProducts();
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_LOCALHOST_URL}/api/products`);
+    products = response.data;
   } catch (error) {
     console.error('Error fetching products in SSG:', error);
   } 

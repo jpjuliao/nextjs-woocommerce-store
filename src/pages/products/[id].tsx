@@ -1,5 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { fetchProductByID } from '@/utils/api';
+import axios from 'axios';
 import ProductDetail from '@/components/ProductDetail';
 import Layout from '@/components/Layout';
 import "@/app/globals.css";
@@ -44,7 +44,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const productId = Number(params.id);
-  const product = await fetchProductByID(productId);
+  const response = await axios.get(
+    `${process.env.NEXT_PUBLIC_LOCALHOST_URL}/api/products/${productId}`
+  );
+  const product = response.data;
 
   if (!product) {
     return { notFound: true };
