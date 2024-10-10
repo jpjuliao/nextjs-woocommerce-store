@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
-import ProductDetailProps from '@/types/ProductDetailProps';
+import { ProductDetailType } from '@/types/ProductTypes';
 
-const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
+const ProductDetail: React.FC<ProductDetailType> = ({ product }) => {
   console.log(product);
 
   const [quantity, setQuantity] = useState<number>(1);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
-import ProductDetailProps from '@/types/ProductDetailProps';
+import { ProductDetailType } from '@/types/ProductTypes';
 import Image from 'next/image';
 
 /**
@@ -11,7 +11,7 @@ import Image from 'next/image';
  *
  * @returns {React.ReactElement} A React component.
  */
-const ProductCard: React.FC<ProductDetailProps> = ({ product }) => {
+const ProductCard: React.FC<ProductDetailType> = ({ product }) => {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState<number>(1);
 
@@ -21,11 +21,11 @@ const ProductCard: React.FC<ProductDetailProps> = ({ product }) => {
   };
 
   const handleAddToCart = () => {
-    addToCart({ 
-      id: product.id, 
-      name: product.name, 
-      price: product.price, 
-      quantity 
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity
     });
   };
 
@@ -34,7 +34,7 @@ const ProductCard: React.FC<ProductDetailProps> = ({ product }) => {
       {
         product.images.length > 0 ? (
           <><Image src={product.images[0].src} width={400} height={300} alt={product.name}
-              className="w-full h-48 object-cover mb-4" /></>
+            className="w-full h-48 object-cover mb-4" /></>
         ) : (
           <img src="https://placehold.co/600x400" width={400} height={300} alt={product.name} />
         )

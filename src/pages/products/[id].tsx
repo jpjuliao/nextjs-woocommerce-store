@@ -3,7 +3,7 @@ import axios from 'axios';
 import ProductDetail from '@/components/ProductDetail';
 import Layout from '@/components/Layout';
 import "@/app/globals.css";
-import ProductDetailProps from "@/types/ProductDetailProps"
+import {ProductDetailType} from "@/types/ProductTypes"
 
 /**
  * A page that displays a product detail.
@@ -13,7 +13,7 @@ import ProductDetailProps from "@/types/ProductDetailProps"
  *
  * @returns {React.ReactElement} A React component.
  */
-const ProductDetailPage: React.FC<ProductDetailProps> = ({ product }) => {
+const ProductDetailPage: React.FC<ProductDetailType> = ({ product }) => {
   return (
     <Layout>
       <ProductDetail product={product} />

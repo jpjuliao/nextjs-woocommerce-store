@@ -9,3 +9,11 @@ export interface Product {
   permalink: string;
   quantity: number;
 }
+
+export interface ProductsType {
+  products: Product[];
+}
+
+export interface ProductDetailType {
+  product: Product;
+}

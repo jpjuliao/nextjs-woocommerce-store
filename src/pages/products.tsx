@@ -2,9 +2,8 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import ProductList from '@/components/ProductList';
 import axios from 'axios';
-import { Product } from '@/types/ProductProps';
 import "@/app/globals.css";
-import ProductsProps from '@/types/ProductsProps';
+import {Product, ProductsType} from '@/types/ProductTypes';
 
 
 /**
@@ -15,7 +14,7 @@ import ProductsProps from '@/types/ProductsProps';
  *
  * @returns {React.ReactElement} A React component.
  */
-const ProductsPage: React.FC<ProductsProps> = ({ products }) => {
+const ProductsPage: React.FC<ProductsType> = ({ products }) => {
   return (
     <Layout>
       <h1 className="text-3xl font-bold mb-6">Our Products</h1>
