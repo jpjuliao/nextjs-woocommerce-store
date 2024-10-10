@@ -1,6 +1,6 @@
 'use client';
 
-import { CartItemProps, CartContextProps } from '@/types/CartContextProps';
+import { CartItemProps, CartContextProps } from '@/types/CartTypes';
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
 
